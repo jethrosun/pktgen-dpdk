@@ -25,11 +25,11 @@ enum {
 #endif
 
 	MAX_MBUFS_PER_PORT      = (DEFAULT_TX_DESC * 8),/* number of buffers to support per port */
-	MAX_SPECIAL_MBUFS       = 64,
+	MAX_SPECIAL_MBUFS       = 128,
 	MBUF_CACHE_SIZE         = (MAX_MBUFS_PER_PORT / 8),
 
 	DEFAULT_PRIV_SIZE       = 8192,
-	DEFAULT_MBUF_SIZE	= RTE_MBUF_DEFAULT_BUF_SIZE * 16 + DEFAULT_PRIV_SIZE * 2, /* See: http://dpdk.org/dev/patchwork/patch/4479/ */
+	DEFAULT_MBUF_SIZE		= RTE_MBUF_DEFAULT_BUF_SIZE * 16 + DEFAULT_PRIV_SIZE * 3, /* See: http://dpdk.org/dev/patchwork/patch/4479/ */
 
 	NUM_Q                   = 8,	/**< Number of cores per port. */
 };
