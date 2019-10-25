@@ -16,7 +16,7 @@
 
 # put current date as yyyy-mm-dd HH:MM:SS in $date
 printf -v date '%(%Y-%m-%d_%H:%M:%S)T\n' -1
-echo $date
+echo "date is " $date
 
 ## Define the traces we will be using
 
@@ -40,12 +40,14 @@ then
 else
     echo "We haven't defined the trace"
 fi
-echo $RUNNING_TRACE
+echo "running trace is " $RUNNING_TRACE
 
 # If we want to define a cmd file: https://pktgen-dpdk.readthedocs.io/en/latest/scripts.html#scripts
 CMD_FILE="command"
-LOG_DIR=$(printf "results/%s" "$date")
-echo $LOG_DIR
+# LOG_DIR=$(printf "results/%s%s" "$date" "$TRACE_NAME")
+LOG_DIR=$(printf "results/%s--%s/" "$TRACE_NAME" "$date" )
+echo "log dir is " $LOG_DIR
+mkdir -p $LOG_DIR
 
 
 ## The magic command
@@ -53,15 +55,13 @@ echo $LOG_DIR
 for i in {1..2}
 do
     echo "This is the $i run"
-    LOG_FILE=$(printf "%s--%s_run%s.log" "$LOG_DIR" "$TRACE_NAME" "$i")
-    echo $LOG_FILE
-    echo $RUNNING_TRACE
-    echo  $LOG_FILE
+    LOG_FILE=$(printf "%srun%s.log" "$LOG_DIR" "$i")
+    echo "log file is " $LOG_FILE
 
-    sudo -E app/x86_64-native-linuxapp-gcc/pktgen \
-        -l 0-4 -n 3 -- \
-        -P -N -T -m "[1:3].0, [2:4].1" \
-        -s 0:$RUNNING_TRACE \
-        -l $LOG_FILE
+    # sudo -E app/x86_64-native-linuxapp-gcc/pktgen \
+    #     -l 0-4 -n 3 -- \
+    #     -P -N -T -m "[1:3].0, [2:4].1" \
+    #     -s 0:$RUNNING_TRACE \
+    #     -l $LOG_FILE
 
 done
