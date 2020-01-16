@@ -16,3 +16,5 @@ node_modules
 gulpfile.js
 x86_64-native-linuxapp-gcc
 lib/lua/build
+
+experiments
