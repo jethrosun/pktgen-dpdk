@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # sudo -E app/x86_64-native-linuxapp-gcc/pktgen -l 0-4 -n 3 -- -P -N -T -m "[1:3].0, [2:4].1"  -s 0:/home/jethros/traces/p2p-small-re.pcap
-# sudo -E app/x86_64-native-linuxapp-gcc/pktgen -l 0-4 -n 3 -- -P -N -T -m "[1:3].0, [2:4].1"  -s 0:/home/jethros/traces/rdr-trace-re.pcap
+sudo -E app/x86_64-native-linuxapp-gcc/pktgen -l 0-4 -n 3 -- -P -N -T -m "[1:3].0, [2:4].1"  -s 0:/home/jethros/traces/rdr-trace-re.pcap
 # sudo -E app/x86_64-native-linuxapp-gcc/pktgen -l 0-4 -n 3 -- -P -N -T -m "[1:3].0, [2:4].1"  -s 0:/home/jethros/traces/tls_handshake_trace.pcap
-sudo -E app/x86_64-native-linuxapp-gcc/pktgen -l 0-4 -n 3 -- -P -N -T -m "[1:3].0, [2:4].1"  -s 0:/home/jethros/traces/video_trace_2_re.pcap
+# sudo -E app/x86_64-native-linuxapp-gcc/pktgen -l 0-4 -n 3 -- -P -N -T -m "[1:3].0, [2:4].1"  -s 0:/home/jethros/traces/video_trace_2_re.pcap
 
 
 # ===================================================================================================
